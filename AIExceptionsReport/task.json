@@ -1,0 +1,105 @@
+{
+    "id": "a3abcbfc-1156-4d96-8c24-ab96e7205142",
+    "name": "AICustomEvent",
+    "friendlyName": "Report Application Insights exceptions",
+    "description": "Query Application Insights exceptions and report them in xUnit test result format.",
+    "author": "RKot",
+    "helpMarkDown": "",
+    "category": "Test",
+    "visibility": [
+        "Build",
+        "Release"
+    ],
+    "runsOn": [
+        "Agent",
+        "DeploymentGroup"
+    ],
+    "version": {
+        "Major": 0,
+        "Minor": 3,
+        "Patch": 0
+    },
+    "icons": {
+        "default": "icon.png"
+    },
+    "demands": [
+        "Cmd"
+    ],
+    "minimumAgentVersion": "1.95.0",
+    "groups": [
+        {
+            "name": "advanced",
+            "displayName": "Advanced Settings",
+            "isExpanded": false
+        }
+    ],
+    "instanceNameFormat": "Report Application Insights exceptions",
+    "inputs": [
+        {
+            "name": "ApplicationInsightsId",
+            "type": "string",
+            "label": "ApplicationInsights Id",
+            "required": true,
+            "helpMarkDown": "The Application ID is used to identify an application when using the Application Insights API."
+        },
+        {
+            "name": "ApplicationInsightsAPIAccessKey",
+            "type": "string",
+            "label": "ApplicationInsights API Access Key",
+            "required": true,
+            "helpMarkDown": "API key with permissions to read application telemetry."
+        },
+        {
+            "name": "StartTime",
+            "type": "pickList",
+            "label": "Start Time",
+            "required": true,
+            "defaultValue": "PipelineStartTime",
+            "options": {
+                "PipelineStartTime": "Pipeline Start Time",
+                "LastHour": "Last hour",
+                "LastCustomEvent": "Last Custom Event"
+            },
+            "helpMarkDown": "Start time range to search."
+        },
+        {
+            "name": "LastCustomEventName",
+            "type": "string",
+            "label": "Custom Event Name",
+            "defaultValue": "Custom Event Name",
+            "required": true,
+            "visibleRule": "StartTime = LastCustomEvent",
+            "helpMarkDown": "Event name property of custom event."
+        },
+        {
+            "name": "ApplicationInsightsDelay",
+            "type": "string",
+            "label": "Wait Timeout Sec",
+            "defaultValue": "0",
+            "required": true,
+            "groupname": "advanced",
+            "helpMarkDown": "Application Insights Delay in seconds."
+        },
+        {
+            "name": "ApplicationInsightsReportFile",
+            "type": "string",
+            "label": "ApplicationInsights Report File Name",
+            "defaultValue": "TEST-ApplicationInsightsExeptions.xml",
+            "required": true,
+            "helpMarkDown": "ApplicationInsights Report File Name.",
+            "groupName": "advanced"
+        }
+    ],
+    "execution": {
+        "PowerShell3": {
+            "target": "start.ps1",
+            "platforms": [
+                "windows"
+            ]
+        },
+        "Node": {
+            "target": "start.js",
+            "argumentFormat": ""
+        }
+    }
+}

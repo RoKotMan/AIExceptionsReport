@@ -1,0 +1,84 @@
+{
+    "manifestVersion": 1,
+    "id": "aiexceptionsreport",
+    "name": "AI Exceptions Report",
+    "version": "0.3.0",
+    "publisher": "romankot",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "Description": "Report Application Insights exceptions.",
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "tags": [
+        "Application Insights"
+    ],
+    "icons": {
+        "default": "images/icon.png"
+    },
+    "content": {
+        "details": {
+            "path": "README.md"
+        },
+        "license": {
+            "path": "LICENSE.md"
+        }
+    },
+    "links": {
+        "home": {
+            "uri": "https://github.com/RoKotMan/AI-Exceptions-Report"
+        },
+        "getstarted": {
+            "uri": "https://github.com/RoKotMan/AI-Exceptions-Report"
+        },
+        "support": {
+            "uri": "https://github.com/RoKotMan/AI-Exceptions-Report"
+        }
+    },
+    "branding": {
+        "color": "rgb(104, 33, 122)",
+        "theme": "dark"
+    },
+    "files": [
+        {
+            "path": "AIExceptionsReport"
+        },
+        {
+            "path": "screenshots/screen1.jpg",
+            "addressable": true
+        },
+        {
+            "path": "screenshots/screen2.jpg",
+            "addressable": true
+        },
+        {
+            "path": "images/icon.png",
+            "addressable": true
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/RoKotMan/AI-Exceptions-Report"
+    },
+    "contributions": [
+        {
+            "id": "aiexceptionsreport-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "AIExceptionsReport",
+                "iconAsset": "my-publisher.my-extension/images/icon.png",
+                "_sharedData": {
+                    "assets": [
+                        "my-publisher.my-extension/images/icon.png"
+                    ]
+                }
+            }
+        }
+    ]
+}
